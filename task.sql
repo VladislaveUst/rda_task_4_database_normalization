@@ -9,6 +9,21 @@ CREATE TABLE Countries (
     PRIMARY KEY (ID)
 );
 
+CREATE TABLE Warehouses (
+    ID INT AUTO_INCREMENT,
+    Name VARCHAR(50) NOT NULL,
+    Address VARCHAR(100) NOT NULL,
+    CountryID INT NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE CASCADE
+);
+
+CREATE TABLE Products (
+    ID INT AUTO_INCREMENT,
+    Name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (ID)
+);
+
 CREATE TABLE ProductInventory (
     ID INT,
     ProductName VARCHAR(50),
@@ -20,11 +35,6 @@ CREATE TABLE ProductInventory (
     PRIMARY KEY (ID)
 );
 
-CREATE TABLE Products (
-    ID INT AUTO_INCREMENT,
-    Name VARCHAR(50) NOT NULL,
-    PRIMARY KEY (ID)
-);
 
 CREATE TABLE ProductInventory (
     ID INT AUTO_INCREMENT,
@@ -46,8 +56,12 @@ VALUES ('Warehouse-1', 'City-1, Street-1', 1), ('Warehouse-2', 'City-2, Street-2
 INSERT INTO Products (Name)
 VALUES ('AwersomeProduct');
 
-INSERT INTO ProductInventory (ProductID, WarehouseID, Amount)
+INSERT INTO ProductInventory (ProductID, WarehouseID, WarehouseAmount)
 VALUES (1, 1, 2), (1, 2, 5);
+
+
+
+
 
 
 

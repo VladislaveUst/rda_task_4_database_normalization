@@ -25,18 +25,6 @@ CREATE TABLE Products (
 );
 
 CREATE TABLE ProductInventory (
-    ID INT,
-    ProductName VARCHAR(50),
-    WarehouseAmount INT,
-    WarehouseName VARCHAR(50),
-    WarehouseAddress VARCHAR(50), 
-    CountryID INT,
-	FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
-    PRIMARY KEY (ID)
-);
-
-
-CREATE TABLE ProductInventory (
     ID INT AUTO_INCREMENT,
     ProductID INT NOT NULL,
     WarehouseID INT NOT NULL,
